@@ -11,9 +11,8 @@ This is a web app that allows users to order pizza with different options of top
 Behavior                |  Input        | Output
 ------------------------| ------------- | -------------
 Create structure form | html form | form fields and cost
-The numbers divisible by 15 will become the text "pingpong";| for loop | 'pingpong'
-The numbers divisible by 5 will become the text "pong";| for loop | "pong"
-The numbers divisible by 3 will become the text "ping";| for loop | "ping"
+Get values from user;| info input by users | show pizza chose and cost
+
 
 ## Setup/Installation Requirements
 
