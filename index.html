@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <title>Order Pizza</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Welcome to ABC Pizza</h1>
+        <p>You have made the right decision by visiting our store. Best pizzas are served at reasonable prices. Please place your order and enjoy!</p>
+      </div> <!-- closing div jumbotron l-2-->
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Please Choose Your Pizzas</h2>
+          <form class="form-group" id="selection">
+            <div class="form-group">
+              <label>Select Favorite Pizza</label>
+              <select class="form-control" id="selectPizzas">
+                <option></option>
+                <option value="original">Original Pizza</option>
+                <option value="specialty">Specialty Pizza</option>
+                <option value="glutenFree">Gluten Free Pizza</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Select Sizes</label>
+              <select class="form-control" id="selectSizes">
+                <option></option>
+                <option value="large">Large: $20</option>
+                <option value="medium">Medium: $16</option>
+                <option value="small">Small: $10</option>
+              </select>
+            </div>
+            <div class="form-group" id="selectToppings">
+              <label>Select Toppings</label><br>
+              <input type="checkbox" id="regular" value="regular"> Regular<br>
+              <input type="checkbox" id="anchovy" value="anchovy"> Anchovy (Reular + $1)<br>
+              <input type="checkbox" id="artichoke" value="artichoke"> Artichoke(Regular + $2)<br>
+              <input type="checkbox" id="cheese" value="cheese"> Cheese(Regular + $2)<br>
+              <input type="checkbox" id="pepperoni" value="pepperoni"> Pepperoni(Regular + $1)<br>
+              <!-- <select class="form-control" id="selectToppings">
+                <option></option>
+                <option value="regular">Regular</option>
+                <option value="anchovy">Anchovy (Regular + $1)</option>
+                <option value="artichoke">Artichoke(Regular + $2)</option>
+                <option value="cheese">Cheese(Regular + $3)</option>
+                <option value="pepperoni">Pepperoni(Regular + $3)</option>
+              </select> -->
+            </div>
+
+            <button type="submit" class="btn btn-primary">Choose this option</button>
+          </form>
+
+          <div id="reviewOrder">
+            <h2>Review Your Order:</h2>
+            <ul id="pizzaList">
+
+            </ul>
+            <button type="submit" class="btn btn-success">Place Order</button>
+          </div>
+        </div> <!-- closing div col-md-6 l-3-->
+
+        <div class="col-md-6">
+          <div class="orderButton">
+            <h2></h2>
+            <p>Size: <span class="size"></span></p>
+            <p>Toppings: <span class="toppings"></span></p>
+            <p>Addresses:</p>
+            <!-- <ul id="reviewOrderList">
+
+            </ul> -->
+          </div>
+          <div id="showFinalSelection">
+
+          </div>
+        </div> <!-- closing div col-md-6 l-3-->
+      </div> <!-- closing div row l-2-->
+    </div> <!-- closing div container l-1-->
+  </body>
+</html>
