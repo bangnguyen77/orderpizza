@@ -36,23 +36,17 @@
                 <option value="small">Small: $10</option>
               </select>
             </div>
-            <div class="form-group" id="selectToppings">
-              <label>Select Toppings</label><br>
-              <input type="checkbox" id="regular" value="regular"> Regular<br>
-              <input type="checkbox" id="anchovy" value="anchovy"> Anchovy (Reular + $1)<br>
-              <input type="checkbox" id="artichoke" value="artichoke"> Artichoke(Regular + $2)<br>
-              <input type="checkbox" id="cheese" value="cheese"> Cheese(Regular + $2)<br>
-              <input type="checkbox" id="pepperoni" value="pepperoni"> Pepperoni(Regular + $1)<br>
-              <!-- <select class="form-control" id="selectToppings">
+            <div class="form-group">
+              <label>Select Toppings</label>
+              <select class="form-control" id="selectToppings">
                 <option></option>
                 <option value="regular">Regular</option>
-                <option value="anchovy">Anchovy (Regular + $1)</option>
+                <option value="anchovy">Anchovy ( Regular + $1)</option>
                 <option value="artichoke">Artichoke(Regular + $2)</option>
-                <option value="cheese">Cheese(Regular + $3)</option>
-                <option value="pepperoni">Pepperoni(Regular + $3)</option>
-              </select> -->
+                <option value="cheese">Cheese(Regular + $2)</option>
+                <option value="pepperoni">Pepperoni(Regular + $1)</option>
+              </select>
             </div>
-
             <button type="submit" class="btn btn-primary">Choose this option</button>
           </form>
 
@@ -61,25 +55,18 @@
             <ul id="pizzaList">
 
             </ul>
-            <button type="submit" class="btn btn-success">Place Order</button>
+            <button id="placeOrder" type="submit" class="btn btn-success">Place Order</button>
           </div>
-        </div> <!-- closing div col-md-6 l-3-->
+        </div> <!-- closing div col-md-6 l-3 -->
 
         <div class="col-md-6">
-          <div class="orderButton">
-            <h2></h2>
-            <p>Size: <span class="size"></span></p>
+          <div class="order">
+            <h2>Pizza Selection: </h2>
             <p>Toppings: <span class="toppings"></span></p>
-            <p>Addresses:</p>
-            <!-- <ul id="reviewOrderList">
-
-            </ul> -->
+            <p>Price: $<span class="price"></span> </p>
           </div>
-          <div id="showFinalSelection">
-
-          </div>
-        </div> <!-- closing div col-md-6 l-3-->
-      </div> <!-- closing div row l-2-->
-    </div> <!-- closing div container l-1-->
+        </div> <!-- closing div col-md-6 l-3 -->
+      </div> <!-- closing div row l-2 -->
+    </div> <!-- closing div container l-1 -->
   </body>
 </html>
