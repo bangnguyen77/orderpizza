@@ -1,77 +1,46 @@
 // business logic
-function Pizza(pizzaName, pizzaSize) {
+function Pizza(pizzaName, pizzaSize, pizzaTopping) {
   this.pizzaName = pizzaName;
   this.pizzaSize = pizzaSize;
-  this.toppings = [];
+  this.pizzaTopping = pizzaTopping;
+  // this.pizzaTopping.push();
 }
 
-Pizza.prototype.nameSize = function() {
-  return this.pizzaName + " " + this.pizzaSize;
+Pizza.prototype.price = function(size, pizzaTopping) {
+  if (size ===  "large") {
+    this.price = 20;
+  } else if (size === "medium") {
+    this.price = 16;
+  } else if (size === "small") {
+    this.price = 10;
+  }
+  for (i = 0; i <= toppings.length; i++) {
+    if (toppings[i] === 'anchovy' || toppings[i] === 'artichoke') {
+      this.price += 1;
+    } else if (toppings[i] === 'cheese' || toppings[i] === 'pepperroni') {
+      this.price += 2;
+    }
+  }
+  return this.price;
 }
-
-Pizza.prototype.price = function() {
-  var price = 0;
-  if (pizzaSize === "small" && this.pizzaTopping === "regular" {
-    return price = 10;
-  } else if (pizzaSize === "small" && this.pizzaTopping === "anchovy") {
-    return price = 11;
-    }
-    else if (pizzaSize === "small" && this.pizzaTopping === "artichoke") {
-    return price = 12;
-    }
-    else if (pizzaSize === "small" && this.pizzaTopping === "cheese") {
-    return price = 12;
-    }
-    else if (pizzaSize === "small" && this.pizzaTopping === "pepperroni") {
-    return price = 11;
-    }
-    else if (pizzaSize === "medium" && this.pizzaTopping === "Regular") {
-    return price = 16;
-    }
-    else if (pizzaSize === "medium" && this.pizzaTopping === "anchovy") {
-    return price = 17;
-    }
-    else if (pizzaSize === "medium" && this.pizzaTopping === "artichoke") {
-    return price = 18;
-    }
-    else if (pizzaSize === "medium" && this.pizzaTopping === "cheese") {
-    return price = 18;
-    }
-    else if (pizzaSize === "medium" && this.pizzaTopping === "pepperroni") {
-    return price = 17;
-    }
-    else if (pizzaSize === "large" && this.pizzaTopping === "Regular") {
-    return price = 20;
-    }
-    else if (pizzaSize === "large" && this.pizzaTopping === "anchovy") {
-    return price = 21;
-    }
-    else if (pizzaSize === "large" && this.pizzaTopping === "artichoke") {
-    return price = 22;
-    }
-    else if (pizzaSize === "large" && this.pizzaTopping === "cheese") {
-    return price = 22;
-    }
-    else if (pizzaSize === "large" && this.pizzaTopping === "pepperroni") {
-    return price = 21;
-    }
-    else {
-    return price;
-    }
-};
 
 $(document).ready(function() {
-  $("form#selection").submit(function(event) {
+  $("#selection").submit(function(event) {
+
     event.preventDefault();
 
     var pizzaName = $("select#selectPizzas").val();
     var pizzaSize = $("select#selectSizes").val();
-    var pizzaTopping = $("select#selectToppings :selected").val();
-    var pizzaOrder = new Pizza(pizzaName, pizzaSize);
-    var toppingOrder = pizzaOrder.pizzaTopping.push();
-debugger;
+    var pizzaTopping = $("input:checkbox:checked").map(function () {
+     return $(this).val()
+   }).get();
+    var pizzaOrder = new Pizza(pizzaName, pizzaSize, pizzaTopping);
+
+
+
     $("#reviewOrder").show();
-    $("ul#pizzaList").append("<li><span class='pizzaItems>" + Pizza.nameSize() + "</span></li>");
+    debugger;
+    $("ul#pizzaList").append("<li><span class='pizzaItems'>" + pizzaOrder.pizzaName + "</span></li>");
 
 
     $("#placeOrder").click(function() {
