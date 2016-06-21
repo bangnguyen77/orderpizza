@@ -5,66 +5,54 @@ function Pizza(pizzaName, pizzaSize) {
   this.toppings = [];
 }
 
-function Topping(topping1, topping2, topping3, topping4, topping5) {
-  this.pizzaTopping = topping1;
-  this.pizzaTopping = topping2;
-  this.pizzaTopping = topping3;
-  this.pizzaTopping = topping4;
-  this.pizzaTopping = topping5;
-}
-
 Pizza.prototype.nameSize = function() {
   return this.pizzaName + " " + this.pizzaSize;
 }
 
-Topping.prototype.fullTopping = function() {
-  return this.topping1 + " " +this.topping2 + " " + this.topping3 + " " + this.topping4 + " " + this.topping5;
-}
-
-Pizza.prototype.price = function(price) {
+Pizza.prototype.price = function() {
   var price = 0;
-  if (pizzaSize === "Small".toLowerCase() && pizzaTopping === "Regular".toLowerCase) {
+  if (pizzaSize === "small" && this.pizzaTopping === "regular" {
     return price = 10;
-  } else if (pizzaSize === "Small".toLowerCase() && pizzaTopping === "anchovy".toLowerCase) {
+  } else if (pizzaSize === "small" && this.pizzaTopping === "anchovy") {
     return price = 11;
     }
-    else if (pizzaSize === "Small".toLowerCase() && pizzaTopping === "artichoke".toLowerCase) {
+    else if (pizzaSize === "small" && this.pizzaTopping === "artichoke") {
     return price = 12;
     }
-    else if (pizzaSize === "Small".toLowerCase() && pizzaTopping === "cheese".toLowerCase) {
+    else if (pizzaSize === "small" && this.pizzaTopping === "cheese") {
     return price = 12;
     }
-    else if (pizzaSize === "Small".toLowerCase() && pizzaTopping === "pepperroni".toLowerCase) {
+    else if (pizzaSize === "small" && this.pizzaTopping === "pepperroni") {
     return price = 11;
     }
-    else if (pizzaSize === "medium".toLowerCase() && pizzaTopping === "Regular".toLowerCase) {
+    else if (pizzaSize === "medium" && this.pizzaTopping === "Regular") {
     return price = 16;
     }
-    else if (pizzaSize === "medium".toLowerCase() && pizzaTopping === "anchovy".toLowerCase) {
+    else if (pizzaSize === "medium" && this.pizzaTopping === "anchovy") {
     return price = 17;
     }
-    else if (pizzaSize === "medium".toLowerCase() && pizzaTopping === "artichoke".toLowerCase) {
+    else if (pizzaSize === "medium" && this.pizzaTopping === "artichoke") {
     return price = 18;
     }
-    else if (pizzaSize === "medium".toLowerCase() && pizzaTopping === "cheese".toLowerCase) {
+    else if (pizzaSize === "medium" && this.pizzaTopping === "cheese") {
     return price = 18;
     }
-    else if (pizzaSize === "medium".toLowerCase() && pizzaTopping === "pepperroni".toLowerCase) {
+    else if (pizzaSize === "medium" && this.pizzaTopping === "pepperroni") {
     return price = 17;
     }
-    else if (pizzaSize === "large".toLowerCase() && pizzaTopping === "Regular".toLowerCase) {
+    else if (pizzaSize === "large" && this.pizzaTopping === "Regular") {
     return price = 20;
     }
-    else if (pizzaSize === "large".toLowerCase() && pizzaTopping === "anchovy".toLowerCase) {
+    else if (pizzaSize === "large" && this.pizzaTopping === "anchovy") {
     return price = 21;
     }
-    else if (pizzaSize === "large".toLowerCase() && pizzaTopping === "artichoke".toLowerCase) {
+    else if (pizzaSize === "large" && this.pizzaTopping === "artichoke") {
     return price = 22;
     }
-    else if (pizzaSize === "large".toLowerCase() && pizzaTopping === "cheese".toLowerCase) {
+    else if (pizzaSize === "large" && this.pizzaTopping === "cheese") {
     return price = 22;
     }
-    else if (pizzaSize === "large".toLowerCase() && pizzaTopping === "pepperroni".toLowerCase) {
+    else if (pizzaSize === "large" && this.pizzaTopping === "pepperroni") {
     return price = 21;
     }
     else {
@@ -80,16 +68,22 @@ $(document).ready(function() {
     var pizzaSize = $("select#selectSizes").val();
     var pizzaTopping = $("select#selectToppings :selected").val();
     var pizzaOrder = new Pizza(pizzaName, pizzaSize);
-    var toppingOrder = new Topping(pizzaTopping);
-
+    var toppingOrder = pizzaOrder.toppings.push();
+debugger;
+    $("#reviewOrder").show();
     $("ul#pizzaList").append("<li><span class='pizzaItems>" + Pizza.nameSize() + "</span></li>");
-    $("ul#pizzaList").append("<li><span class='pizzaItems>" + Topping.fullTopping() + "</span></li>");
+
 
     $("#placeOrder").click(function() {
-      $(".order").show();
+      $("div.order").show();
       $(".order h2").text(newPizza.nameSize());
-      $(".order .toppings").text(fullTopping);
-      $(".order .price").text(Pizza.toppings);
+      $("span .toppings").text((this).toppingOrder);
+      $("span .price").text(Pizza.toppings);
+
+      $("p#price-display").show();
+   $("p#price-display").text("The cost of your pizza is $" + totalPrice + ".");
+   $("#your-pizzas").append('<li>' + newPizza.pizzaName() + '<li>');
+   $("form").trigger("reset");
     });
   });
 });
