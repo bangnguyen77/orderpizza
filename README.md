@@ -10,21 +10,24 @@ This is a web app that allows users to order pizza with different options of top
 ## Specification(s):
 Behavior                |  Input        | Output
 ------------------------| ------------- | -------------
-Create structure form | html form | form fields and cost
-Get values from user;| info input by users | show pizza chose and cost
+Get values from user    | regular, small | $10
+Create Constructor function for new Pizza| function Pizza(pizzaName, pizzaSize) | new Pizza()
+Create prototype for pizza name & size | Pizza.prototype | specialty pizza cheese
+Create prototype for price | pizza size & toppings | $16
+Show pizza type chosen | show, append methods | display cost as result $20
 
 
 ## Setup/Installation Requirements
 
-* _This simple program should run in most Web browsers_
+** This simple program should run in most Web browsers_
 
 ## Known Bugs
 
-_No known bugs_
+** No known bugs
 
 ## Technologies Used
 
-_JavaScript and jQuery_
+** JavaScript and jQuery
 
 ## Link to the webpage:
 http://bangnguyen77.github.io/orderpizza/

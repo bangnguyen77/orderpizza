@@ -68,7 +68,7 @@ $(document).ready(function() {
     var pizzaSize = $("select#selectSizes").val();
     var pizzaTopping = $("select#selectToppings :selected").val();
     var pizzaOrder = new Pizza(pizzaName, pizzaSize);
-    var toppingOrder = pizzaOrder.toppings.push();
+    var toppingOrder = pizzaOrder.pizzaTopping.push();
 debugger;
     $("#reviewOrder").show();
     $("ul#pizzaList").append("<li><span class='pizzaItems>" + Pizza.nameSize() + "</span></li>");
