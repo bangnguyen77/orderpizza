@@ -3,7 +3,11 @@ function Pizza(pizzaName, pizzaSize, pizzaTopping) {
   this.pizzaName = pizzaName;
   this.pizzaSize = pizzaSize;
   this.pizzaTopping = pizzaTopping;
-  // this.pizzaTopping.push();
+}
+
+function Price(size, price) {
+  this.size = size;
+  this.price = price;
 }
 
 Pizza.prototype.price = function(size, pizzaTopping) {
@@ -14,10 +18,10 @@ Pizza.prototype.price = function(size, pizzaTopping) {
   } else if (size === "small") {
     this.price = 10;
   }
-  for (i = 0; i <= toppings.length; i++) {
-    if (toppings[i] === 'anchovy' || toppings[i] === 'artichoke') {
+  for (i = 0; i <= pizzaTopping.length; i++) {
+    if (pizzaTopping[i] === 'anchovy' || pizzaTopping[i] === 'artichoke') {
       this.price += 1;
-    } else if (toppings[i] === 'cheese' || toppings[i] === 'pepperroni') {
+    } else if (pizzaTopping[i] === 'cheese' || pizzaTopping[i] === 'pepperroni') {
       this.price += 2;
     }
   }
@@ -35,24 +39,17 @@ $(document).ready(function() {
      return $(this).val()
    }).get();
     var pizzaOrder = new Pizza(pizzaName, pizzaSize, pizzaTopping);
-
-
+    var totalPrice = Pizza.prize
 
     $("#reviewOrder").show();
+    $("ul#pizzaList").append("<li><span class='pizzaItems'>" + pizzaOrder.pizzaName + ", " + "</span></li>" + "<li><span class='pizzaItems'>" + pizzaSize + "</span></li>"+ "<li><span class='pizzaItems'>" + totalPrice + "</span></li>");
     debugger;
-    $("ul#pizzaList").append("<li><span class='pizzaItems'>" + pizzaOrder.pizzaName + "</span></li>");
-
+    // $("p#cost").append("<p><span class='cost'>"Your pizza costs: + price"</span></p>");
+    // $("button#placeOrder").trigger("reset");
 
     $("#placeOrder").click(function() {
+      $("#reviewOrder").hide();
       $("div.order").show();
-      $(".order h2").text(newPizza.nameSize());
-      $("span .toppings").text((this).toppingOrder);
-      $("span .price").text(Pizza.toppings);
-
-      $("p#price-display").show();
-   $("p#price-display").text("The cost of your pizza is $" + totalPrice + ".");
-   $("#your-pizzas").append('<li>' + newPizza.pizzaName() + '<li>');
-   $("form").trigger("reset");
     });
   });
 });
