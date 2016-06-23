@@ -3,19 +3,20 @@ function Pizza(pizzaName, pizzaSize, pizzaTopping) {
   this.pizzaName = pizzaName;
   this.pizzaSize = pizzaSize;
   this.pizzaTopping = pizzaTopping;
+  // this.pizzaPrice = pizzaPrice;
 }
 
-function Price(size, price) {
-  this.size = size;
-  this.price = price;
-}
+// function Price(size, pizzaPrice) {
+//   this.size = size;
+//   this.pizzaPrice = pizzaPrice;
+// }
 
-Pizza.prototype.price = function(size, pizzaTopping) {
-  if (size ===  "large") {
+Pizza.prototype.price = function() {
+  if (pizzaSize ===  "large") {
     this.price = 20;
-  } else if (size === "medium") {
+  } else if (pizzaSize === "medium") {
     this.price = 16;
-  } else if (size === "small") {
+  } else if (pizzaSize === "small") {
     this.price = 10;
   }
   for (i = 0; i <= pizzaTopping.length; i++) {
@@ -25,7 +26,7 @@ Pizza.prototype.price = function(size, pizzaTopping) {
       this.price += 2;
     }
   }
-  return this.price;
+  // return price;
 }
 
 $(document).ready(function() {
@@ -39,13 +40,10 @@ $(document).ready(function() {
      return $(this).val()
    }).get();
     var pizzaOrder = new Pizza(pizzaName, pizzaSize, pizzaTopping);
-    var totalPrice = Pizza.prize
+    // var totalPrice = Pizza.pizzaPrice
 
     $("#reviewOrder").show();
-    $("ul#pizzaList").append("<li><span class='pizzaItems'>" + pizzaOrder.pizzaName + ", " + "</span></li>" + "<li><span class='pizzaItems'>" + pizzaSize + "</span></li>"+ "<li><span class='pizzaItems'>" + totalPrice + "</span></li>");
-    debugger;
-    // $("p#cost").append("<p><span class='cost'>"Your pizza costs: + price"</span></p>");
-    // $("button#placeOrder").trigger("reset");
+    $("ul#pizzaList").append("<li><span class='pizzaItems'>" + pizzaOrder.pizzaName + ", " + "</span></li>" + "<li><span class='pizzaItems'>" + pizzaOrder.pizzaSize + "</span></li>"+ "<li><span class='pizzaItems'>" + pizzaOrder.price + "</span></li>");
 
     $("#placeOrder").click(function() {
       $("#reviewOrder").hide();
