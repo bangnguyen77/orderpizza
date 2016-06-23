@@ -16,7 +16,7 @@ Pizza.prototype.calculatePrice = function() {
   for (i = 0; i <= this.pizzaTopping.length; i++) {
     if (this.pizzaTopping[i] === 'anchovy' || this.pizzaTopping[i] === 'artichoke') {
       this.price += 1;
-    } else if (this.pizzaTopping[i] === 'cheese' || this.pizzaTopping[i] === 'pepperroni') {
+    } else if (this.pizzaTopping[i] === 'cheese' || this.pizzaTopping[i] === 'pepperoni') {
       this.price += 2;
     }
   }
