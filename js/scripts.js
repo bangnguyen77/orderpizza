@@ -5,47 +5,37 @@ function Pizza(pizzaName, pizzaSize, pizzaTopping) {
   this.pizzaTopping = pizzaTopping;
 }
 
-function Price(size, price) {
-  this.size = size;
-  this.price = price;
-}
-
-Pizza.prototype.price = function(size, pizzaTopping) {
-  if (size ===  "large") {
+Pizza.prototype.calculatePrice = function() {
+  if (this.pizzaSize ===  "large") {
     this.price = 20;
-  } else if (size === "medium") {
+  } else if (this.pizzaSize === "medium") {
     this.price = 16;
-  } else if (size === "small") {
+  } else if (this.pizzaSize === "small") {
     this.price = 10;
   }
-  for (i = 0; i <= pizzaTopping.length; i++) {
-    if (pizzaTopping[i] === 'anchovy' || pizzaTopping[i] === 'artichoke') {
+  for (i = 0; i <= this.pizzaTopping.length; i++) {
+    if (this.pizzaTopping[i] === 'anchovy' || this.pizzaTopping[i] === 'artichoke') {
       this.price += 1;
-    } else if (pizzaTopping[i] === 'cheese' || pizzaTopping[i] === 'pepperroni') {
+    } else if (this.pizzaTopping[i] === 'cheese' || this.pizzaTopping[i] === 'pepperroni') {
       this.price += 2;
     }
   }
-  return this.price;
 }
 
 $(document).ready(function() {
   $("#selection").submit(function(event) {
-
     event.preventDefault();
 
     var pizzaName = $("select#selectPizzas").val();
     var pizzaSize = $("select#selectSizes").val();
     var pizzaTopping = $("input:checkbox:checked").map(function () {
      return $(this).val()
-   }).get();
+    }).get();
     var pizzaOrder = new Pizza(pizzaName, pizzaSize, pizzaTopping);
-    var totalPrice = Pizza.prize
+    pizzaOrder.calculatePrice();
 
     $("#reviewOrder").show();
-    $("ul#pizzaList").append("<li><span class='pizzaItems'>" + pizzaOrder.pizzaName + ", " + "</span></li>" + "<li><span class='pizzaItems'>" + pizzaSize + "</span></li>"+ "<li><span class='pizzaItems'>" + totalPrice + "</span></li>");
-    debugger;
-    // $("p#cost").append("<p><span class='cost'>"Your pizza costs: + price"</span></p>");
-    // $("button#placeOrder").trigger("reset");
+    $("ul#pizzaList").append("<li><span class='pizzaItems'>" + pizzaOrder.pizzaName + ", " + "</span></li>" + "<li><span class='pizzaItems'>" + pizzaOrder.pizzaSize + "</span></li>"+ "<li><span class='pizzaItems'>" + pizzaOrder.price + "</span></li>");
 
     $("#placeOrder").click(function() {
       $("#reviewOrder").hide();
